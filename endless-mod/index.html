@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Endless Mod for LOVE 3</title>
+        <meta name="description" content="A mod for LOVE 3 that adds an endless mode.">
+        <meta name="author" content="python-b5">
+
+        <meta property="og:title" content="LOVE 3: Endless Mod">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.python-b5.com/endless-mod">
+        <meta property="og:description" content="A mod for LOVE 3 that adds an endless mode.">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <article class="markdown-body">
+            <h1 class="center">Endless Mod for LOVE 3</h1>
+
+            <br>
+
+            <div class="center"><img src="images/endless.png"/></div>
+
+            <br>
+
+            <section>
+                <h2>Install</h2>
+
+                <p>Download (Windows): <a href="endless-mod.zip">https://www.python-b5.com/endless-mod/endless-mod.zip</a></p>
+
+                <h3>Instructions</h3>
+
+                <p>Extract the <code>.zip</code> file to your base LOVE 3 install directory and run <code>install.bat</code>. The original <code>data.win</code> file will be saved as <code>vanilla.win</code>, to allow for easy uninstallation (just delete <code>data.win</code> and rename the backup file).</p>
+
+                <p><b>NOTE:</b> This is only tested on the Steam version of the game, as I don't own the itch version. Additionally, other platforms may be supported in the future, but I don't have easy access to them, so it likely won't happen anytime soon.</p>
+            </section>
+
+            <section>
+                <h2>Features</h2>
+
+                <ul>
+                    <li>
+                        Added Endless Mode to the game (based on the version in LOVE 2: kuso)
+                        <ul>
+                            <li>Flips levels if needed to match up level exits (and tries its best for the levels that enter/exit vertically)</li>
+                            <li>Choose which levelsets to include in the rotation (<b>NOTE:</b> <3 has level 20 removed, as it's barely a level and the fade transition is awkward in the middle of a run)</li>
+                            <li>Counts all found secrets and resets them after each level is completed</li>
+                            <li>Save and load support (<b>NOTE:</b> vanilla saves are not compatible with this mod and will crash the game; delete <code>save.sav</code> before playing!)</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        Bug fixes / polish (related to the mod)
+                        <ul>
+                            <li>Fixed not being able to pause when continuing any run after a game over</li>
+                            <li>Fixed HUD text not being horizontally aligned with pause menu text</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </body>
+</html>
