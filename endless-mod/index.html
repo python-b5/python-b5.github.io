@@ -25,20 +25,15 @@
             <h1 class="center">Endless Mod for LOVE 3</h1>
 
             <br>
-
             <div class="center"><img src="images/endless.png"/></div>
-
             <br>
 
             <section>
                 <h2>Install</h2>
-
                 <p>Download (Windows): <a href="endless-mod.zip">https://www.python-b5.com/endless-mod/endless-mod.zip</a></p>
 
                 <h3>Instructions</h3>
-
                 <p>Extract the <code>.zip</code> file to your base LOVE 3 install directory and run <code>install.bat</code>. The original <code>data.win</code> file will be saved as <code>vanilla.win</code>, to allow for easy uninstallation (just delete <code>data.win</code> and rename the backup file).</p>
-
                 <p><b>NOTE:</b> This is only tested on the Steam version of the game, as I don't own the itch version. Additionally, other platforms may be supported in the future, but I don't have easy access to them, so it likely won't happen anytime soon.</p>
             </section>
 
@@ -47,7 +42,7 @@
 
                 <ul>
                     <li>
-                        Added Endless Mode to the game (based on the version in LOVE 2: kuso)
+                        Adds Endless Mode to the game (based on the version in LOVE 2: kuso)
                         <ul>
                             <li>Flips levels if needed to match up level exits (and tries its best for the levels that enter/exit vertically)</li>
                             <li>Choose which levelsets to include in the rotation (<b>NOTE:</b> <3 has level 20 removed, as it's barely a level and the fade transition is awkward in the middle of a run)</li>
@@ -57,11 +52,12 @@
                     </li>
 
                     <li>
-                        Bug fixes / polish (that I found while testing and were very easy to fix)
+                        Bug fixes / polish (that I noticed while testing and were very easy to fix)
                         <ul>
-                            <li>Fixed not being able to pause when continuing any run after a game over</li>
-                            <li>Fixed HUD text not being horizontally aligned with pause menu text</li>
-                            <li>Fixed broken <code>if</code> statement in classic secret tokens (first one, for LOVE level 1; it sticks out once you notice it)</li>
+                            <li>Fixes not being able to pause when continuing any run after a game over</li>
+                            <li>Fixes broken <code>if</code> statement in classic secret tokens (first one, for LOVE level 1; it sticks out once you notice it)</li>
+                            <li>Fixes HUD text not being horizontally aligned with pause menu text</li>
+                            <li>Replaces all view restrictors in <3 with the spotlight type from level 10 (partially because I think they look better, but mostly because there was a bug with the other ones and I was lazy)</li>
                         </ul>
                     </li>
                 </ul>
