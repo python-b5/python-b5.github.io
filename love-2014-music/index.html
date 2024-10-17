@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>LOVE 2014 Music in LOVE 3</title>
+        <meta name="description" content="A mod for LOVE 3 that replaces the music for the LOVE 2014 campaign with that found in the original release.">
+        <meta name="author" content="python-b5">
+
+        <meta property="og:title" content="LOVE 2014 Music in LOVE 3">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://python-b5.com/love-2014-music">
+        <meta property="og:description" content="A mod for LOVE 3 that replaces the music for the LOVE 2014 campaign with that found in the original release.">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css">
+
+        <link rel="stylesheet" href="../style.css">
+    </head>
+
+    <body>
+        <article class="markdown-body">
+            <h1 class="center">LOVE 2014 Music in LOVE 3</h1>
+
+            <p>This mod adds the original music from LOVE 2014 back into the recreation of its campaign in LOVE 3. It is written as a script for UndertaleModTool, which should allow it to work with all future versions of the game (barring dramatic changes to its codebase).</p>
+
+            <p>To install this mod, you'll need <a href="https://github.com/krzys-h/UndertaleModTool">UndertaleModTool</a>, the mod's <a href="script.csx" download="love-2014-music.csx">script file</a>, and a copy of LOVE 2014 (both Steam and itch will work). I can't share the LOVE 2014 music, so if you want to use the mod you'll have to extract it yourself.</p>
+
+            <ol>
+                <li>Open the LOVE 2014 <code>data.win</code> file in UndertaleModTool.</li>
+                <li>Select <code>Scripts > Resource Repackers > ExportAllSounds.csx</code>, then select No for each dialog box. You can close UndertaleModTool now.</li>
+                <li>A new <code>Exported_Sounds</code> folder will then be in the game directory. Copy the <code>mus00-11.ogg</code> files from there, and paste them in a new folder called <code>love2014</code> within the <code>mus</code> folder in your LOVE 3 game directory.</li>
+                <li>Open the LOVE 3 <code>data.win</code> file in UndertaleModTool.</li>
+                <li>Select <code>Scripts > Run other script</code>, and open the <code>love-2014-music.csx</code> file linked at the top of this page. Wait until a dialog appears confirming the script was successful.</li>
+                <li>Close UndertaleModTool, saving changes when prompted.</li>
+                <li>The mod should now be installed.</li>
+            </ol>
+        </article>
+    </body>
+</html>

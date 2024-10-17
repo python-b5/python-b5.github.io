@@ -1,3 +1,3 @@
-# site
+# python-b5.github.io
 
-My main site; contains links to my other projects.
+This is my personal site, containing links to my other projects.
