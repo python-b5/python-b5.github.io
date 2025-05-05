@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>berry.Sound : Lily</title>
+        <link href="..\docstyle.css" rel="stylesheet">
+    </head>
+    <body role="document">
+        <section id='main'>
+            <h1>Class Sound</h1>
+<div class='doc'>
+<p>Sound data that can later be played.</p>
+<p>Sound data is loaded from disk - the constructor is passed a path to an audio file to load. Each audio file should only be loaded once, since it would be a waste of memory to load the same sound multiple times. The same <code>Sound</code> object can be reused for as many purposes as necessary.</p>
+<p>Both WAV and Ogg Vorbis audio files are supported. Generally, it is best to use WAV for sound effects, and Ogg for music.</p></div><h3 id='constructor'>
+<code>constructor<a href='#constructor'></a>(path: String): <a href='class.Sound.html'>Sound</a></code></h3>
+<h3 id='method.length'>
+<code>public define <a href='#method.length'>length</a>: Double</code></h3>
+<div class='doc'><p>Returns the length of <code>self</code>, in seconds.</p></div><h3 id='method.play'>
+<code>public define <a href='#method.play'>play</a>(looping: *Boolean, position: *Double, volume: *Double, speed: *Double): <a href='class.PlayingSound.html'>PlayingSound</a></code></h3>
+<div class='doc'><p>Starts playback of <code>self</code>.</p>
+<p>Several options can be configured through optional keyword arguments. They are passed directly into <code>PlayingSound</code>&#39;s constructor, and so are roughly equivalent to setting the values manually through <code>PlayingSound</code>&#39;s various methods. They are as follows:</p>
+<ul>
+<li><code>looping</code> determines whether the <code>PlayingSound</code> should loop upon finishing.</li>
+<li><code>position</code> is used as the initial playback position for the <code>PlayingSound</code>, in seconds. It must be between <code>0.0</code> and the length of <code>self</code>.</li>
+<li><code>volume</code> is used as the initial volume for the <code>PlayingSound</code>, as a multiplier applied to <code>self</code>&#39;s original volume.</li>
+<li><code>speed</code> is used as the initial speed for the <code>PlayingSound</code>, as a multiplier applied to <code>self</code>&#39;s original speed. It must be between <code>0.0</code> and <code>100.0</code> (the latter limit is inherited from SDL, which Berry uses internally - if a different library were used for sound playback instead, that limit would likely not be in place).</li>
+</ul>
+<div class='linkblock' id='errors.play'><a href='#errors.play'>Errors</a></div>
+<ul>
+<li><code>ValueError</code> if any invalid values are passed as options.</li>
+</ul></div>
+        </section>
+    </body>
+</html>

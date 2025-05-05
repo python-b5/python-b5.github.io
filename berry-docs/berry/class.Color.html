@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>berry.Color : Lily</title>
+        <link href="..\docstyle.css" rel="stylesheet">
+    </head>
+    <body role="document">
+        <section id='main'>
+            <h1>Class Color</h1>
+<div class='doc'><p>An RGB color.</p>
+<p>For convenience, this class&#39; constructor takes an integer as an argument, which is then broken down into the individual color channels. This means the standard hexadecimal color syntax can be used (eg. <code>0xffffff</code> for white).</p>
+<div class='linkblock' id='errors.Color'><a href='#errors.Color'>Errors</a></div>
+<ul>
+<li><code>ValueError</code> if <code>color</code> is not between <code>0</code> and <code>16777216</code> (or <code>0x000000</code> and <code>0xffffff</code>, if using hexadecimal syntax).</li>
+</ul></div>
+<pre>class Color
+{
+    public var @red: Byte
+    public var @blue: Byte
+    public var @green: Byte
+}
+</pre>
+<h3 id='constructor'>
+<code>constructor<a href='#constructor'></a>(color: Integer): <a href='class.Color.html'>Color</a></code></h3>
+
+        </section>
+    </body>
+</html>

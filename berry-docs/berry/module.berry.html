@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>berry : Lily</title>
+        <link href="..\docstyle.css" rel="stylesheet">
+    </head>
+    <body role="document">
+        <section id='main'>
+            <h1>Module berry</h1>
+<div class='doc'>
+<p>This module is what you use to interface with Berry itself. It facilitates window management, input, rendering, and audio.</p></div><h2>Classes</h2>
+<table>
+<tbody>
+<tr>
+<td><a class='reflink' href='class.Sprite.html'>Sprite</a></td>
+<td>An image that can both be drawn and drawn to.</td>
+</tr><tr>
+<td><a class='reflink' href='class.PlayingSound.html'>PlayingSound</a></td>
+<td>An instance of a <code>Sound</code> being played.</td>
+</tr><tr>
+<td><a class='reflink' href='class.Sound.html'>Sound</a></td>
+<td>Sound data that can later be played.</td>
+</tr></tbody>
+</table><h2>Enums</h2>
+<table>
+<tbody>
+<tr>
+<td><a class='reflink' href='enum.Color.html'>Color</a></td>
+<td>An RGBA color.</td>
+</tr><tr>
+<td><a class='reflink' href='enum.BlendFactor.html'>BlendFactor</a></td>
+<td>A factor used to multiply pixel components when drawing.</td>
+</tr><tr>
+<td><a class='reflink' href='enum.BlendOperation.html'>BlendOperation</a></td>
+<td>An operation used to combine source and destination pixel components.</td>
+</tr><tr>
+<td><a class='reflink' href='enum.BlendMode.html'>BlendMode</a></td>
+<td>A blend mode for drawing.</td>
+</tr></tbody>
+</table><h2>Modules</h2>
+<table>
+<tbody>
+<tr>
+<td><a class='reflink' href='config/module.config.html'>config</a></td>
+<td>This module provides access to the game&#39;s configuration information, as
+provided in <code>config.txt</code>.</td>
+</tr><tr>
+<td><a class='reflink' href='window/module.window.html'>window</a></td>
+<td>This module contains routines to modify the window.</td>
+</tr><tr>
+<td><a class='reflink' href='keyboard/module.keyboard.html'>keyboard</a></td>
+<td>This module contains routines for keyboard input.</td>
+</tr><tr>
+<td><a class='reflink' href='mouse/module.mouse.html'>mouse</a></td>
+<td>This module contains routines for mouse input.</td>
+</tr><tr>
+<td><a class='reflink' href='gamepad/module.gamepad.html'>gamepad</a></td>
+<td>This module contains routines for gamepad input.</td>
+</tr></tbody>
+</table><h2>Functions</h2><h3 id='function.bind_step'>
+<code>define <a href='#function.bind_step'>bind_step</a>(function: Function())</code></h3>
+<div class='doc'>
+<p>Tells Berry to call a specific function each frame.</p>
+<p>You do not control the main application loop yourself when using Berry. Instead, you give Berry a function to call each frame, and it will do so at the correct time, while handling all the other necessary boilerplate (input handling, rendering, etc).</p>
+<p>You can bind a new step function at any time, if you so desire. Perhaps that could be useful for something like a title screen, that is sufficiently separate from the rest of the game and could use its own mainloop. For most games, though, simply binding a single step function in <code>game.lily</code> will suffice.</p></div><h2>Vars</h2><h3 id='var.save_path'>
+<code>var <a href='#var.save_path'>save_path</a>: String</code></h3>
+<div class='doc'>
+<p>A directory appropriate for writing save data in.</p>
+<p>You don&#39;t <em>have</em> to use this directory, necessarily. However, if all you&#39;re doing is writing typical save files, and not interacting with the broader filesystem, this directory is a good idea to use. It will be set to a standard location for application data on the current platform.</p>
+<div class='linkblock' id='examples.save_path'><a href='#examples.save_path'>Examples</a></div>
+<ul>
+<li>On Windows: <code>%appdata%\&lt;game title&gt;\</code></li>
+<li>On Mac: <code>~/Library/Application Support/&lt;game title&gt;/</code></li>
+<li>On Linux: <code>~/.local/share/&lt;game title&gt;/</code></li>
+</ul></div>
+        </section>
+    </body>
+</html>

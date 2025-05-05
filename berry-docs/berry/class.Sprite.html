@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>berry.Sprite : Lily</title>
+        <link href="..\docstyle.css" rel="stylesheet">
+    </head>
+    <body role="document">
+        <section id='main'>
+            <h1>Class Sprite</h1>
+<div class='doc'>
+<p>An image that can both be drawn and drawn to.</p>
+<p><code>Sprite</code> image data is loaded from disk - the constructor is passed a path to an image file to load. Each image file should only be loaded once, since it would be a waste of memory to load the same image multiple times. The same <code>Sprite</code> object can be reused for as many purposes as necessary.</p>
+<p>Only PNG files are supported. This is for a few reasons:</p>
+<ul>
+<li>Lossy image formats are useless for pixel art games.</li>
+<li>PNG is, by far, the most common lossless image format, and is well-supported.</li>
+<li>Only supporting a single format keeps the Berry specification small. The reference implementation of Berry uses <code>stb_image</code> for image loading, which does support more formats than PNG, but another theoretical implementation could choose not to use <code>stb_image</code> for any reason, and only needing to support PNG means that implementation would not have to expend effort to support several extra image formats that would likely not be used anyway.</li>
+</ul></div><h3 id='constructor'>
+<code>constructor<a href='#constructor'></a>(path: String): <a href='class.Sprite.html'>Sprite</a></code></h3>
+<h3 id='method.width'>
+<code>public define <a href='#method.width'>width</a>: Integer</code></h3>
+<div class='doc'><p>Returns the width of <code>self</code>, in pixels.</p></div><h3 id='method.height'>
+<code>public define <a href='#method.height'>height</a>: Integer</code></h3>
+<div class='doc'><p>Returns the height of <code>self</code>, in pixels.</p></div><h3 id='method.get_pixel'>
+<code>public define <a href='#method.get_pixel'>get_pixel</a>(x: Integer, y: Integer): Option[<a href='enum.Color.html'>Color</a>]</code></h3>
+<div class='doc'><p>Returns the color of a pixel at a given coordinate on <code>self</code>. If <code>(x, y)</code> is out of bounds, <code>None</code> is returned.</p>
+<p><code>Color</code> objects returned by this method will use the <code>RGBA</code> variant, as it is the closest to how Berry stores colors internally.</p></div><h3 id='method.set_pixel'>
+<code>public define <a href='#method.set_pixel'>set_pixel</a>(x: Integer, y: Integer, color: <a href='enum.Color.html'>Color</a>)</code></h3>
+<div class='doc'><p>Sets the color of a pixel at a given coordinate on <code>self</code>.</p>
+<div class='linkblock' id='errors.set_pixel'><a href='#errors.set_pixel'>Errors</a></div>
+<ul>
+<li><code>ValueError</code> if <code>(x, y)</code> is out of bounds.</li>
+</ul></div><h3 id='method.draw'>
+<code>public define <a href='#method.draw'>draw</a>(x: Integer, y: Integer, target: *Option[<a href='class.Sprite.html'>Sprite</a>], color: *<a href='enum.Color.html'>Color</a>, blend_mode: *<a href='enum.BlendMode.html'>BlendMode</a>, crop: *Option[Tuple[Integer, Integer, Integer, Integer]], origin_x: *Integer, origin_y: *Integer, scale_x: *Double, scale_y: *Double, angle: *Double, shaders: *List[Tuple[Function(<a href='class.Sprite.html'>Sprite</a>, Integer, Integer => Option[<a href='enum.Color.html'>Color</a>]), Integer]])</code></h3>
+<div class='doc'><p>Draws <code>self</code> to the screen, or to another <code>Sprite</code>.</p>
+<p>Several options can be configured through optional keyword arguments. They are as follows:</p>
+<ul>
+<li><code>target</code> is the <code>Sprite</code> that <code>self</code> will be drawn to. By default, this is <code>None</code>, which will draw to the screen itself - most of the time, that is what you want.</li>
+<li><code>color</code> is blended with the original colors of <code>self</code> when drawn. The alpha component is used to set transparency.</li>
+<li><code>blend_mode</code> determines how <code>self</code> is blended with the pixels already on <code>target</code>. The default value of <code>Normal</code> is usually sufficient, but for more sophisticated graphical effects, you may wish to change it.</li>
+<li><code>crop</code> defines a rectangular region of <code>self</code> to draw, in the format of a tuple defining the left, top, right, and bottom coordinates in that order. Nothing outside the crop region is drawn.</li>
+<li><code>origin_x</code> and <code>origin_y</code> are the coordinates of the pixel on <code>self</code> that will be drawn at <code>(x, y)</code>. If <code>angle</code> is not <code>0.0</code>, they will also be used as the pivot point for rotation. If <code>crop</code> is not <code>None</code>, they are treated as relative to the top-left corner of <code>crop</code>, not of the whole sprite.</li>
+<li><code>scale_x</code> and <code>scale_y</code> squish/stretch <code>self</code> horizontally. They are treated as ratios, where <code>1.0</code> is the original size. They can also be negative, in which case <code>self</code> will be flipped on that axis (if this happens, the origin point will still refer to the same relative pixel on the sprite).</li>
+<li><code>angle</code> is some amount of degrees, used to rotate <code>self</code> when drawn. Despite Berry using a left-handed coordinate system, angles here are counterclockwise from <code>0.0</code>, as is usually seen in mathematics.</li>
+<li><code>shaders</code> is a <code>List</code> of shader functions to pass <code>self</code> through before drawing it. Essentially, these are post-processing effects. They work roughly the same as a pixel/fragment shader: a shader function takes as arguments the <code>Sprite</code> and pixel coordinates being drawn, and returns the <code>Color</code> that should be used for that pixel (or <code>None</code>, if the pixel should not be changed). <code>self</code> is passed through each shader function in this <code>List</code> in turn; all pixels are passed through each function before moving onto the next, which allows for multi-pass effects. Shader functions in this <code>List</code> are stored in <code>Tuple</code>s, along with an <code>Integer</code> that determines a width, in pixels, of padding to include in the set of coordinates passed to the shader function - this allows for effects that extend beyond the range of the <code>Sprite</code>, like outlines. Padding values must not be negative.</li>
+</ul>
+<div class='linkblock' id='errors.draw'><a href='#errors.draw'>Errors</a></div>
+<ul>
+<li><code>ValueError</code> if any invalid values are passed as options.</li>
+</ul></div>
+        </section>
+    </body>
+</html>

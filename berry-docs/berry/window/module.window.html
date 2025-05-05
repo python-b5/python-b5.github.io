@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>berry.window : Lily</title>
+        <link href="..\..\docstyle.css" rel="stylesheet">
+    </head>
+    <body role="document">
+        <section id='main'>
+            <h1>Module window</h1>
+<div class='doc'>
+<p>This module contains routines to modify the window.</p></div><h2>Functions</h2><h3 id='function.get_scale'>
+<code>define <a href='#function.get_scale'>get_scale</a>: Integer</code></h3>
+<div class='doc'>
+<p>Returns the current window scale factor.</p></div><h3 id='function.set_scale'>
+<code>define <a href='#function.set_scale'>set_scale</a>(scale: Integer)</code></h3>
+<div class='doc'>
+<p>Scales the window to a new factor.</p>
+<p><code>scale</code> must be between <code>1</code> and <code>max_scale</code>.</p>
+<p>If the game is in fullscreen mode, this function will have no visible effect. However, the scale change will be apparent once fullscreen mode is next exited.</p></div><h3 id='function.get_fullscreen'>
+<code>define <a href='#function.get_fullscreen'>get_fullscreen</a>: Boolean</code></h3>
+<div class='doc'>
+<p>Returns whether the game is in fullscreen mode.</p></div><h3 id='function.set_fullscreen'>
+<code>define <a href='#function.set_fullscreen'>set_fullscreen</a>(fullscreen: Boolean)</code></h3>
+<div class='doc'>
+<p>Enters or exits fullscreen mode.</p></div><h2>Vars</h2><h3 id='var.max_scale'>
+<code>var <a href='#var.max_scale'>max_scale</a>: Integer</code></h3>
+<div class='doc'>
+<p>The largest window scale factor that can fit on the user&#39;s display.</p></div>
+        </section>
+    </body>
+</html>

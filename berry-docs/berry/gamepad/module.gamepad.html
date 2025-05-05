@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>berry.gamepad : Lily</title>
+        <link href="..\..\docstyle.css" rel="stylesheet">
+    </head>
+    <body role="document">
+        <section id='main'>
+            <h1>Module gamepad</h1>
+<div class='doc'>
+<p>This module contains routines for gamepad input.</p>
+<p>See <code>keyboard</code> and <code>mouse</code> for similar modules that facilitate other kinds of input. All three modules have similar interfaces.</p>
+<div class='linkblock' id='errors.gamepad'><a href='#errors.gamepad'>Errors</a></div>
+<p>These apply for all functions except <code>.connected_gamepads</code>.</p>
+<ul>
+<li><code>ValueError</code> if <code>gamepad</code> is less than <code>0</code>.</li>
+<li><code>ValueError</code> if less than <code>gamepad + 1</code> gamepads are connected.</li>
+</ul></div><h2>Enums</h2>
+<table>
+<tbody>
+<tr>
+<td><a class='reflink' href='enum.Button.html'>Button</a></td>
+<td>A gamepad button to be passed to an input function.</td>
+</tr><tr>
+<td><a class='reflink' href='enum.Axis.html'>Axis</a></td>
+<td>A gamepad axis to be passed to an input function.</td>
+</tr></tbody>
+</table><h2>Functions</h2><h3 id='function.connected_gamepads'>
+<code>define <a href='#function.connected_gamepads'>connected_gamepads</a>: Integer</code></h3>
+<div class='doc'>
+<p>Returns the current number of connected gamepads.</p>
+<p>This function should be used to verify which gamepad indices are available for use. Gamepad indices range from <code>0</code> to <code>connected_gamepads() - 1</code>.</p></div><h3 id='function.held'>
+<code>define <a href='#function.held'>held</a>(gamepad: Integer, button: <a href='enum.Button.html'>Button</a>): Boolean</code></h3>
+<div class='doc'>
+<p>Returns whether a given <code>Button</code> is held down on a given gamepad.</p></div><h3 id='function.pressed'>
+<code>define <a href='#function.pressed'>pressed</a>(gamepad: Integer, button: <a href='enum.Button.html'>Button</a>): Boolean</code></h3>
+<div class='doc'>
+<p>Returns whether a given <code>Button</code> was pressed this frame on a given gamepad.</p></div><h3 id='function.released'>
+<code>define <a href='#function.released'>released</a>(gamepad: Integer, button: <a href='enum.Button.html'>Button</a>): Boolean</code></h3>
+<div class='doc'>
+<p>Returns whether a given <code>Button</code> was released this frame on a given gamepad.</p></div><h3 id='function.get_axis'>
+<code>define <a href='#function.get_axis'>get_axis</a>(gamepad: Integer, axis: <a href='enum.Axis.html'>Axis</a>): Double</code></h3>
+<div class='doc'>
+<p>Returns the value of a given <code>Axis</code> on a given gamepad.</p></div>
+        </section>
+    </body>
+</html>

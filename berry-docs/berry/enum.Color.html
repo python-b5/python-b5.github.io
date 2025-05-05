@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>berry.Color : Lily</title>
+        <link href="..\docstyle.css" rel="stylesheet">
+    </head>
+    <body role="document">
+        <section id='main'>
+            <h1>Enum Color</h1>
+<div class='doc'><p>An RGBA color.</p>
+<p>Internally, colors are stored as four bytes - one for each channel. Often when working with colors, though, that is not the optimal format - bytes are clunky to work with, and in many cases you may not care about all four channels. This enum is provided to solve these issues.</p>
+<p>Individual channels are always passed as <code>Double</code>s in Berry&#39;s API, to make colors easier to work with. They are converted to bytes internally when being used for drawing (eg. <code>0.0</code> -&gt; <code>0x00</code>, <code>1.0</code> -&gt; <code>0xFF</code>).</p>
+<p>To help make colors easier to construct, this enum provides a few variants depending on your use case:</p>
+<ul>
+<li><code>RGB</code> takes an <code>Integer</code> as an argument, which is then broken down into the individual color channels. This means the standard hexadecimal color syntax can be used (eg. <code>0xffffff</code> for white). Colors using this variant are always opaque. Use this variant if you only want to set color, and don&#39;t care about transparency.</li>
+<li><code>RGBA</code> is like <code>RGB</code>, but also includes the alpha channel (as the least significant byte). This variant probably is only useful if converting back to a <code>Color</code> after calling <code>.to_i</code>.</li>
+<li><code>Alpha</code> takes a <code>Double</code> as an argument, which Berry will convert to a byte for drawing. Colors using this variant are always white. Use this variant if you only want to set transparency, and don&#39;t care about color.</li>
+<li><code>Mixed</code> is a combination of <code>RGB</code> and <code>Alpha</code>. It can be used to set both color and transparency at the same time in a more natural way than with <code>RGBA</code> or <code>Channels</code>.</li>
+<li><code>Channels</code> takes four <code>Doubles</code> as arguments, which are converted to bytes and used for each channel. This variant likely will not see much use, but it is provided as the inverse of the methods that return the individual channel values.</li>
+</ul>
+<div class='linkblock' id='errors.Color'><a href='#errors.Color'>Errors</a></div>
+<p>Errors may be raised when a method is called on <code>self</code>, when <code>self</code> is passed to <code>Sprite.set_pixel</code> or <code>Sprite.draw</code>, and when <code>self</code> is returned from a shader function.</p>
+<ul>
+<li>For <code>RGB</code> and <code>RGBA</code>: <code>ValueError</code> if the color value is not between <code>0</code> and <code>16777216</code> (or <code>0x000000</code> and <code>0xffffff</code>, if using hexadecimal syntax).</li>
+<li>For <code>Alpha</code> and <code>RGBA</code>: <code>ValueError</code> if the alpha value is not between <code>0.0</code> and <code>1.0</code>.</li>
+</ul></div>
+<pre>enum Color
+{
+    RGB(Integer),
+    RGBA(Integer),
+    Alpha(Double),
+    Mixed(Integer, Double),
+    Channels(Double, Double, Double, Double)
+}
+</pre>
+<h3 id='method.red'>
+<code>define <a href='#method.red'>red</a>: Double</code></h3>
+<div class='doc'><p>Returns the red channel of <code>self</code> as a <code>Double</code>.</p></div><h3 id='method.green'>
+<code>define <a href='#method.green'>green</a>: Double</code></h3>
+<div class='doc'><p>Returns the green channel of <code>self</code> as a <code>Double</code>.</p></div><h3 id='method.blue'>
+<code>define <a href='#method.blue'>blue</a>: Double</code></h3>
+<div class='doc'><p>Returns the blue channel of <code>self</code> as a <code>Double</code>.</p></div><h3 id='method.alpha'>
+<code>define <a href='#method.alpha'>alpha</a>: Double</code></h3>
+<div class='doc'><p>Returns the alpha channel of <code>self</code> as a <code>Double</code>.</p></div><h3 id='method.color'>
+<code>define <a href='#method.color'>color</a>: Integer</code></h3>
+<div class='doc'><p>Returns the red, green, and blue channels of <code>self</code> as an <code>Integer</code>, with each channel using one byte.</p>
+<p>This is the same format that can be passed to the <code>RGB</code> variant.</p></div><h3 id='method.to_i'>
+<code>define <a href='#method.to_i'>to_i</a>: Integer</code></h3>
+<div class='doc'><p>Converts <code>self</code> to an <code>Integer</code>, with each channel using one byte.</p>
+<p>This is the same format that can be passed to the <code>RGBA</code> variant.</p></div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>berry.BlendMode : Lily</title>
+        <link href="..\docstyle.css" rel="stylesheet">
+    </head>
+    <body role="document">
+        <section id='main'>
+            <h1>Enum BlendMode</h1>
+<div class='doc'><p>A blend mode for drawing.</p>
+<p>Can either be a preset mode (probably sufficient most of the time), or a custom mode composed of individual <code>BlendFactor</code> and <code>BlendOperation</code> values.</p></div>
+<pre>scoped enum BlendMode
+{
+    Normal,
+    Add,
+    Subtract,
+    SubtractInv,
+    Multiply,
+    Minimum,
+    Maximum,
+    Custom(BlendFactor, BlendFactor, BlendOperation, BlendFactor, BlendFactor, BlendOperation)
+}
+</pre>
+
+        </section>
+    </body>
+</html>

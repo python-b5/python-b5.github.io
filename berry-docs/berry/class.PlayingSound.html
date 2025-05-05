@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>berry.PlayingSound : Lily</title>
+        <link href="..\docstyle.css" rel="stylesheet">
+    </head>
+    <body role="document">
+        <section id='main'>
+            <h1>Class PlayingSound</h1>
+<div class='doc'>
+<p>An instance of a <code>Sound</code> being played.</p>
+<p>This class cannot be constructed directly. <code>PlayingSound</code> objects are returned by <code>Sound.play</code>, and represent individual playback instances - there is no limit to the amount of <code>PlayingSound</code> objects that can be created from a single <code>Sound</code>.</p>
+<div class='linkblock' id='errors.PlayingSound'><a href='#errors.PlayingSound'>Errors</a></div>
+<ul>
+<li>For all methods except <code>.finished</code>: <code>RuntimeError</code> if <code>self</code> has finished playing.</li>
+</ul></div><h3 id='constructor'>
+<code>constructor<a href='#constructor'></a>: <a href='class.PlayingSound.html'>PlayingSound</a></code></h3>
+<h3 id='method.is_paused'>
+<code>public define <a href='#method.is_paused'>is_paused</a>: Boolean</code></h3>
+<div class='doc'><p>Returns whether <code>self</code> is paused.</p></div><h3 id='method.pause'>
+<code>public define <a href='#method.pause'>pause</a></code></h3>
+<div class='doc'><p>Pauses playback for <code>self</code>.</p></div><h3 id='method.resume'>
+<code>public define <a href='#method.resume'>resume</a></code></h3>
+<div class='doc'><p>Resumes playback for <code>self</code>.</p></div><h3 id='method.is_looping'>
+<code>public define <a href='#method.is_looping'>is_looping</a>: Boolean</code></h3>
+<div class='doc'><p>Returns whether <code>self</code> is set to loop upon finishing.</p></div><h3 id='method.set_looping'>
+<code>public define <a href='#method.set_looping'>set_looping</a>(looping: Boolean)</code></h3>
+<div class='doc'><p>Changes the looping state for <code>self</code>.</p></div><h3 id='method.get_position'>
+<code>public define <a href='#method.get_position'>get_position</a>: Double</code></h3>
+<div class='doc'><p>Returns the current playback position for <code>self</code> in seconds.</p></div><h3 id='method.set_position'>
+<code>public define <a href='#method.set_position'>set_position</a>(position: Double)</code></h3>
+<div class='doc'><p>Sets the playback position for <code>self</code>.</p>
+<p><code>position</code> is the desired playback position, in seconds.</p>
+<div class='linkblock' id='errors.set_position'><a href='#errors.set_position'>Errors</a></div>
+<ul>
+<li><code>ValueError</code> if <code>position</code> is not between <code>0.0</code> and the length of the sound.</li>
+</ul></div><h3 id='method.get_volume'>
+<code>public define <a href='#method.get_volume'>get_volume</a>: Double</code></h3>
+<div class='doc'><p>Returns the current volume of <code>self</code>, as a multiplier applied to the sound&#39;s original volume.</p></div><h3 id='method.set_volume'>
+<code>public define <a href='#method.set_volume'>set_volume</a>(volume: Double)</code></h3>
+<div class='doc'><p>Sets the playback volume for <code>self</code>.</p>
+<p><code>volume</code> is the desired volume, as a multiplier applied to the sound&#39;s original volume.</p>
+<div class='linkblock' id='errors.set_volume'><a href='#errors.set_volume'>Errors</a></div>
+<ul>
+<li><code>ValueError</code> if <code>volume</code> is less than <code>0</code>.</li>
+</ul></div><h3 id='method.get_speed'>
+<code>public define <a href='#method.get_speed'>get_speed</a>: Double</code></h3>
+<div class='doc'><p>Returns the current playback speed of <code>self</code>, as a multiplier applied to the sound&#39;s original speed.</p></div><h3 id='method.set_speed'>
+<code>public define <a href='#method.set_speed'>set_speed</a>(speed: Double)</code></h3>
+<div class='doc'><p>Sets the playback speed for <code>self</code>.</p>
+<p><code>speed</code> is the desired speed, as a multiplier applied to the sound&#39;s original speed.</p>
+<div class='linkblock' id='errors.set_speed'><a href='#errors.set_speed'>Errors</a></div>
+<ul>
+<li><code>ValueError</code> if <code>speed</code> is not between <code>0.0</code> and <code>100.0</code> (the latter limit is inherited from SDL, which Berry uses internally - if a different library were used for sound playback instead, that limit would likely not be in place).</li>
+</ul></div><h3 id='method.stop'>
+<code>public define <a href='#method.stop'>stop</a></code></h3>
+<div class='doc'><p>Immediately stops playback of <code>self</code>.</p></div><h3 id='method.finished'>
+<code>public define <a href='#method.finished'>finished</a>: Boolean</code></h3>
+<div class='doc'><p>Returns whether <code>self</code> has finished playing.</p>
+<p>Once this method returns <code>true</code>, there is no more use for <code>self</code>, and it can be safely discarded.</p>
+<p>If <code>self</code> is looping, this method will never return <code>true</code> without intervention. You must stop playback manually with <code>PlayingSound.stop</code>.</p>
+<p>All other methods will raise a <code>RuntimeError</code> if called after finishing, so check the result of this method <strong>first</strong> before calling them!</p></div>
+        </section>
+    </body>
+</html>
